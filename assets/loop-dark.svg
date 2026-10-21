@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 360" width="970" height="360" role="img" aria-labelledby="t d">
+<title id="t">The coordinator loop</title>
+<desc id="d">Seven steps: brief, worker, gate, review, merge, prod check, handover; the handover feeds the next brief.</desc>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8fb0e8"/></marker></defs>
+<rect width="970" height="360" fill="#0f1a2c"/>
+<path d="M240 112 H270" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M470 112 H500" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M700 112 H730" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M830 154 V192 H140 V230" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M240 272 H270" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M470 272 H500" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M600 314 V334 H950 V44 H140 V70" fill="none" stroke="#e0a040" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ah)"/>
+<text x="560" y="36" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#e0a040" text-anchor="middle">what the last run taught goes into the next brief</text>
+<rect x="40" y="70" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
+<circle cx="62" cy="94" r="12" fill="#e0a040"/>
+<text x="62" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">1</text>
+<text x="84" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Brief</text>
+<text x="56" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">check-value verdict first</text>
+<text x="56" y="141" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">atomic TASK, facts marked</text>
+<rect x="270" y="70" width="200" height="84" rx="10" fill="#3a2d14" stroke="#e0a040" stroke-width="2"/>
+<circle cx="292" cy="94" r="12" fill="#e0a040"/>
+<text x="292" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">2</text>
+<text x="314" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Worker</text>
+<text x="286" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">headless claude -p</text>
+<text x="286" y="141" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">own worktree, hooks on</text>
+<rect x="500" y="70" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
+<circle cx="522" cy="94" r="12" fill="#e0a040"/>
+<text x="522" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">3</text>
+<text x="544" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Gate</text>
+<text x="516" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">own gate, HEAD printed</text>
+<text x="516" y="141" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">before and after</text>
+<rect x="730" y="70" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
+<circle cx="752" cy="94" r="12" fill="#e0a040"/>
+<text x="752" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">4</text>
+<text x="774" y="99" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Review</text>
+<text x="746" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">re-run the evidence, 2-pass diff</text>
+<text x="746" y="141" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">test expectations vs facts</text>
+<rect x="40" y="230" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="62" cy="254" r="12" fill="#e0a040"/>
+<text x="62" y="259" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">5</text>
+<text x="84" y="259" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Merge</text>
+<text x="56" y="283" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">coordinator merges; the owner</text>
+<text x="56" y="301" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">merges high-risk paths</text>
+<rect x="270" y="230" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
+<circle cx="292" cy="254" r="12" fill="#e0a040"/>
+<text x="292" y="259" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">6</text>
+<text x="314" y="259" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Prod check</text>
+<text x="286" y="283" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">roll out, then look at the</text>
+<text x="286" y="301" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">live system, not the exit code</text>
+<rect x="500" y="230" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
+<circle cx="522" cy="254" r="12" fill="#e0a040"/>
+<text x="522" y="259" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0f1a2c" text-anchor="middle">7</text>
+<text x="544" y="259" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f4fa">Handover</text>
+<text x="516" y="283" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">verified facts + pointers</text>
+<text x="516" y="301" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">memory layers L0-L3</text>
+<rect x="730" y="232" width="26" height="16" rx="4" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
+<text x="768" y="245" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">coordinator</text>
+<rect x="730" y="258" width="26" height="16" rx="4" fill="#3a2d14" stroke="#e0a040" stroke-width="2"/>
+<text x="768" y="271" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">headless worker</text>
+<rect x="730" y="284" width="26" height="16" rx="4" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="768" y="297" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#aebbd3">owner for high-risk paths</text>
+</svg>
