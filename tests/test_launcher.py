@@ -15,6 +15,7 @@ def launch(tmp_path, slug, model, brief_text, **env):
     brief.write_text(brief_text)
     return subprocess.run(
         ["bash", str(LAUNCHER), slug, model, str(brief)],
+        check=False,
         capture_output=True,
         text=True,
         cwd=tmp_path,
@@ -124,6 +125,7 @@ def launch_live(tmp_path, repo, wts, fake_bin, **env):
     brief.write_text(GOOD)
     return subprocess.run(
         ["bash", str(LAUNCHER), "demo", "cheap", str(brief)],
+        check=False,
         capture_output=True,
         text=True,
         cwd=tmp_path,

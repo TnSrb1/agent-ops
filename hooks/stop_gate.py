@@ -51,6 +51,7 @@ def main() -> int:
             argv[0] if shell else list(argv),
             shell=shell,
             cwd=cwd,
+            check=False,
             capture_output=True,
             text=True,
             timeout=timeout,
@@ -68,7 +69,10 @@ def main() -> int:
         return 0  # not a worker branch: coordinator and humans are never gated
 
     counter = f"{STATE}/{sid}.n"
-    n = int(open(counter).read()) if os.path.exists(counter) else 0
+    n = 0
+    if os.path.exists(counter):
+        with open(counter) as f:
+            n = int(f.read())
     if n >= MAX_BLOCKS:
         log(f"SKIP after {MAX_BLOCKS} blocks, branch {branch}")
         return 0

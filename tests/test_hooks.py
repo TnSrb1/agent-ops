@@ -19,6 +19,7 @@ def run_guard(cmd, env=None):
     return subprocess.run(
         [sys.executable, str(GUARD)],
         input=json.dumps({"tool_input": {"command": cmd}}),
+        check=False,
         capture_output=True,
         text=True,
         env={**os.environ, **(env or {})},
@@ -70,7 +71,11 @@ def test_guard_allows(cmd):
 
 def test_guard_ignores_garbage_payload():
     r = subprocess.run(
-        [sys.executable, str(GUARD)], input="not json", capture_output=True, text=True
+        [sys.executable, str(GUARD)],
+        input="not json",
+        check=False,
+        capture_output=True,
+        text=True,
     )
     assert r.returncode == 0
 
@@ -139,6 +144,7 @@ def run_stop(repo, tmp_path, stubs, gate="true", sid="s1", extra=None):
     r = subprocess.run(
         [sys.executable, str(STOP)],
         input=json.dumps({"cwd": str(repo), "session_id": sid}),
+        check=False,
         capture_output=True,
         text=True,
         env=env,
