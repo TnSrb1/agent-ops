@@ -38,12 +38,12 @@ markdown file you can read in a few minutes.
 
 ## In numbers
 
-As of 20 October 2026, for the project this was extracted from:
+As of October 2026, for the project this was extracted from:
 
-- 751 merged pull requests and 1,329 commits since 2 May 2026
-- 60,540 tenders processed and 28,745 notifications delivered
+- 750+ merged pull requests and 1,300+ commits since 2 May 2026
+- 60,000+ tenders processed and 25,000+ notifications delivered
 - 7 live data sources
-- 7,756 tests passing in the gate
+- about 8,000 tests passing in the gate
 - 34 architecture decision records
 
 These describe the product the loop built, not the loop. They are here so you can judge
@@ -74,6 +74,10 @@ The rules in this repository are scars. Each is a real incident, reduced to its 
 8. **Phantom tasks.** Six queued tasks were removed in one day by fact: the supposed defect was
    in zero rows, or not in the source, or already handled. A verdict step now comes before
    every brief, and a removed phantom is written down with its numbers.
+9. **Two green branches, one red main.** One PR raised a cap from 12 to 30; a parallel PR
+   mirrored the old 12 in a page and its test. Neither branch could see the conflict. Before
+   merging, the old value is searched for across the neighbouring branches, and the merged
+   main gets one more gate run.
 
 ## Limitations
 

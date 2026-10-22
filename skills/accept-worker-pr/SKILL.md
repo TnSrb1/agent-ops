@@ -70,6 +70,16 @@ coordinator's own gate once failed on formatting in code the coordinator had wri
    taken from a real run is asserted here?* If none, rewrite the expectation. Call the route,
    count in the database, render the page; compare with the assertion.
 
+   6b. **If the repository is exported or mirrored somewhere (a public snapshot, a vendored copy),
+   run the new tests inside that export too.** A test that reads a registry, a file or a
+   setting that the export replaces is green at home and red in the copy: one worker's tests
+   failed the public repository's CI while the private gate passed.
+
+   6c. **Parallel PRs: one PR's constant is another PR's literal.** Before merging, `git grep`
+   the old value on the neighbouring branch. One PR raised a cap from 12 to 30 while another,
+   written the same day, mirrored 12 in a public page and its test: each was green, main went
+   red. Merge the source of the value first; the second PR is reworked after `merge origin/main`.
+
 7. **See the result with your own eyes.** UI: screenshot and look at it. Delivery or
    rendering: execute the production code path on safe data. A metric that is clean while
    the page is broken is still a broken page.

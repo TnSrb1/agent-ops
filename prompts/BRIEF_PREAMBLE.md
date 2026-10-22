@@ -1,4 +1,4 @@
-# BRIEF_PREAMBLE — rules for every worker run
+# BRIEF_PREAMBLE: rules for every worker run
 
 Every task brief points here. Read this file first. The run is headless: nobody answers
 questions, and the process can be cut at any moment (usage limit, crash).
