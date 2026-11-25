@@ -49,6 +49,17 @@ RULES = [
         rf"\bgit\b{_SEG}\bpush\b{_SEG}\s\+\S",
         "force-push via a '+refspec' is forbidden",
     ),
+    (
+        r"\bpytest\b[^\n]*\|[^\n]*\bgit\s+commit\b",
+        (
+            "a test run piped into a commit takes the exit code of the pipe's last stage; "
+            "write the log to a file, check EXIT, then commit in a separate command"
+        ),
+    ),
+    (
+        r"--no-verify\b",
+        "--no-verify skips the hooks that guard the commit",
+    ),
 ]
 try:
     RULES += [

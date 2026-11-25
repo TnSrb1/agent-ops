@@ -45,6 +45,11 @@ verdict returns next session as a new task.
 4. **Question 3 - is it OUR layer, and should it exist at all?** What is absent in the source
    cannot be fixed in code, and some absences are by design. Check ALL sources, not two of three.
 
+4b. **Question 4 - does it already exist?** Before "we cannot do X", search the code by meaning
+   and look for data already collected. A report line "these formats were not measured" was read
+   as "not supported"; the extractor already read all of them, and a hundred sample files were
+   already on disk, so the measurement needed no network at all.
+
 5. **Record the verdict** as one of three words, with numbers and the method:
 
    | Verdict | Meaning | What the coordinator does |
@@ -68,6 +73,9 @@ verdict returns next session as a new task.
 | "141 mismatches in the database" | an aggregate with no split by type | split by type, ask "should this exist here?" |
 | "found zero rows" | maybe your own query is broken | run it as a counterfactual on data known to exist |
 | the check costs more than the fix | not a job for this skill | just make the change |
+| "not measured" in an old report | read as "not supported" | search the code and the collected data first |
+| an item "waits for the owner" | the artifact may not exist yet | link the artifact, or write "not ready - on me" |
+| the same alert every cycle | a cause was found, a decision was never taken | decide now or brief it; an open decision is a future alert |
 
 ## What this was proven on
 

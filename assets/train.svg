@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 990 330" width="990" height="330" role="img" aria-labelledby="t d">
+<title id="t">The merge train</title>
+<desc id="d">Six steps: approve a PR at a commit, precheck, build the batch, one gate on the merged batch, merge commits, compare the tree of main with the tested tree. A failed gate goes to triage and bisection and back to the build; a failed precheck drops the PR.</desc>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f3760"/></marker><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c07f1a"/></marker></defs>
+<rect width="990" height="330" fill="#fbfaf6"/>
+<text x="495" y="40" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1f3760" text-anchor="middle">the tree of main after the merge is exactly the tree the gate tested</text>
+<rect x="20" y="96" width="145" height="84" rx="10" fill="#ffffff" stroke="#1f3760" stroke-width="2"/>
+<circle cx="40" cy="118" r="11" fill="#c07f1a"/>
+<text x="40" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fbfaf6" text-anchor="middle">1</text>
+<text x="58" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f3760">Approve</text>
+<text x="32" y="148" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">coordinator, after</text>
+<text x="32" y="165" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">review: PR at sha S</text>
+<rect x="183" y="96" width="145" height="84" rx="10" fill="#ffffff" stroke="#1f3760" stroke-width="2"/>
+<circle cx="203" cy="118" r="11" fill="#c07f1a"/>
+<text x="203" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fbfaf6" text-anchor="middle">2</text>
+<text x="221" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f3760">Precheck</text>
+<text x="195" y="148" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">merge: main + queue</text>
+<text x="195" y="165" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">weakened tests, heads</text>
+<path d="M165 138 H183" fill="none" stroke="#1f3760" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="346" y="96" width="145" height="84" rx="10" fill="#fdf3e0" stroke="#c07f1a" stroke-width="2"/>
+<circle cx="366" cy="118" r="11" fill="#c07f1a"/>
+<text x="366" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fbfaf6" text-anchor="middle">3</text>
+<text x="384" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f3760">Build</text>
+<text x="358" y="148" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">B0 = main</text>
+<text x="358" y="165" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">Bk = B(k-1) + PR k</text>
+<path d="M328 138 H346" fill="none" stroke="#1f3760" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="509" y="96" width="145" height="84" rx="10" fill="#fdf3e0" stroke="#c07f1a" stroke-width="2"/>
+<circle cx="529" cy="118" r="11" fill="#c07f1a"/>
+<text x="529" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fbfaf6" text-anchor="middle">4</text>
+<text x="547" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f3760">One gate</text>
+<text x="521" y="148" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">full suite on Bn</text>
+<text x="521" y="165" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">infra fail: retry once</text>
+<path d="M491 138 H509" fill="none" stroke="#1f3760" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="672" y="96" width="145" height="84" rx="10" fill="#ffffff" stroke="#1f3760" stroke-width="2"/>
+<circle cx="692" cy="118" r="11" fill="#c07f1a"/>
+<text x="692" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fbfaf6" text-anchor="middle">5</text>
+<text x="710" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f3760">Merge</text>
+<text x="684" y="148" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">merge commit per PR</text>
+<text x="684" y="165" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">pinned to its sha</text>
+<path d="M654 138 H672" fill="none" stroke="#1f3760" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="835" y="96" width="145" height="84" rx="10" fill="#ffffff" stroke="#1f3760" stroke-width="2"/>
+<circle cx="855" cy="118" r="11" fill="#c07f1a"/>
+<text x="855" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fbfaf6" text-anchor="middle">6</text>
+<text x="873" y="123" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f3760">Check</text>
+<text x="847" y="148" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">tree(main) ==</text>
+<text x="847" y="165" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78">tree(Bn)</text>
+<path d="M817 138 H835" fill="none" stroke="#1f3760" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M255 180 V226" fill="none" stroke="#c07f1a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#aa)"/>
+<text x="255" y="246" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#c07f1a" text-anchor="middle">conflict or failed check:</text>
+<text x="255" y="262" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#c07f1a" text-anchor="middle">the PR drops out, no gate</text>
+<path d="M581 180 V236 H418 V182" fill="none" stroke="#c07f1a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#aa)"/>
+<text x="505" y="258" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#c07f1a" text-anchor="middle">FAIL: flaky rerun, culprit by</text>
+<text x="505" y="274" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#c07f1a" text-anchor="middle">traceback, else split in half</text>
+<text x="744" y="70" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78" text-anchor="middle">DB backup first if a</text>
+<text x="744" y="86" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78" text-anchor="middle">migration is in the batch</text>
+<text x="92" y="70" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78" text-anchor="middle">new worker commit after S:</text>
+<text x="92" y="86" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5a78" text-anchor="middle">stale, review again</text>
+<text x="495" y="316" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5a78" text-anchor="middle">worker side: quick check on a merge with fresh main, no full gate</text>
+</svg>

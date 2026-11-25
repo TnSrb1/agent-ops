@@ -42,6 +42,11 @@ def run_guard(cmd, env=None):
         "git push origin +worker/x",
         "gh pr create --title t --body b",
         "cd repo && gh pr merge 3",
+        "pytest -q tests | tail -5 && git commit -m fix",
+        "python3 -m pytest | tee log.txt; git commit -am fix",
+        "git commit --no-verify -m fix",
+        "git commit -m fix --no-verify",
+        "git push --no-verify origin worker/x",
     ],
 )
 def test_guard_blocks(cmd):
@@ -62,6 +67,10 @@ def test_guard_blocks(cmd):
         "gh pr list --state all --head worker/x",
         "pytest -q",
         "git push origin worker/main-page",
+        "pytest -q tests > run.log 2>&1; echo EXIT=$?",
+        "pytest -q tests > run.log 2>&1 && git commit -m fix",
+        "pytest -q tests | tee run.log",
+        "git commit -m verify-hooks-pass",
     ],
 )
 def test_guard_allows(cmd):

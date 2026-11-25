@@ -64,11 +64,22 @@ foreground gate, autonomy, findings go to issues). `TASK_TEMPLATE.md` is the sha
 brief: diagnosis marked verified or not, addresses, boundaries, required evidence, done-when.
 
 ### `skills/` - the coordinator's procedures
-Three Claude Code skills in executable form: `check-value` (before the brief),
-`accept-worker-pr` (after the PR), `version-check` (before touching the tooling).
+Six Claude Code skills in executable form: `check-value` (before the brief), `launch-worker`
+(brief, launch, watch, stop), `accept-worker-pr` (after the PR), `merge-deploy` (approve,
+merge, release), `verify-traps` (specific ways a check lies) and `version-check` (before
+touching the tooling).
+
+### The merge train - described, not shipped
+Accepted PRs are not merged one by one. The coordinator approves a commit; a dispatcher runs
+cheap prechecks, builds the batch on top of `main`, runs ONE full gate on the merged tree,
+bisects on failure and merges with merge commits, so that the tree of `main` equals the tree
+that was tested. The worker runs only a quick check. See `MERGE_TRAIN.md`; the host-specific
+scripts are not in this repository.
 
 ### `docs/` - the reasoning
-`COORDINATOR_LOOP.md`, `VERIFYING_AI_PRS.md` and `MEMORY_LAYERS.md` explain the why.
+`COORDINATOR_LOOP.md`, `VERIFYING_AI_PRS.md` and `MEMORY_LAYERS.md` explain the why;
+`MERGE_TRAIN.md`, `COORDINATOR_SESSION.md` and `SHARED_MACHINE.md` describe how the loop scaled
+to several workers on one small machine.
 
 ## Invariants
 
@@ -84,6 +95,11 @@ requires the PR to be a draft. Check: ask the worker's account to merge a throwa
 A worker report, a PR description and any tool's output are claims. The coordinator repeats
 the commands from the evidence document and runs its own gate. Check: the acceptance notes
 contain the coordinator's own exit code and commit hash, not a quote.
+
+**Invariant:** the tree of `main` is the tree the gate tested.
+Branches green on their own can make a red `main`. The full gate runs on the merged batch, and
+after the merge the tree hash of `main` is compared with the tested tree. Check: the train log
+ends each batch with "main = the tested tree", or names the PR that broke the equality.
 
 **Invariant:** one worktree = one operation.
 A shared checkout moves under you: a periodic reset, another run, a branch switch. Every run
@@ -137,6 +153,7 @@ those two assumptions.
 usage limits end runs without warning. The state of a run therefore lives in the branch (code,
 the evidence document, a small machine-readable state file), never in the conversation.
 
-**What is deliberately absent.** No scheduler, no database of runs, no automatic restart. A
-supervisor that launches paid workers by itself breaks the spend invariant, so launching stays
-a human-approved command.
+**What is deliberately absent.** No scheduler of runs, no database of runs, no automatic restart.
+A supervisor that launches paid workers by itself breaks the spend invariant, so launching stays
+a human-approved command. The merge train's dispatcher is the one daemon in the loop, and it
+only merges what the coordinator approved at a named commit; it never starts a paid run.
