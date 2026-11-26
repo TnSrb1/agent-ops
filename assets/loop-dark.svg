@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 360" width="970" height="360" role="img" aria-labelledby="t d">
-<title id="t">The coordinator loop</title>
-<desc id="d">Seven steps: brief, worker, gate, review, merge, prod check, handover; the handover feeds the next brief.</desc>
-<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8fb0e8"/></marker></defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 360" width="970" height="360" role="img" aria-labelledby="loop-dark-t loop-dark-d">
+<title id="loop-dark-t">The coordinator loop</title>
+<desc id="loop-dark-d">Seven steps: brief, worker, gate, review, merge, prod check, handover; the handover feeds the next brief.</desc>
+<defs><marker id="loop-dark-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8fb0e8"/></marker></defs>
 <rect width="970" height="360" fill="#0f1a2c"/>
-<path d="M240 112 H270" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
-<path d="M470 112 H500" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
-<path d="M700 112 H730" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
-<path d="M830 154 V192 H140 V230" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
-<path d="M240 272 H270" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
-<path d="M470 272 H500" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#ah)"/>
-<path d="M600 314 V334 H950 V44 H140 V70" fill="none" stroke="#e0a040" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ah)"/>
+<path d="M240 112 H270" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#loop-dark-ah)"/>
+<path d="M470 112 H500" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#loop-dark-ah)"/>
+<path d="M700 112 H730" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#loop-dark-ah)"/>
+<path d="M830 154 V192 H140 V230" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#loop-dark-ah)"/>
+<path d="M240 272 H270" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#loop-dark-ah)"/>
+<path d="M470 272 H500" fill="none" stroke="#8fb0e8" stroke-width="2" marker-end="url(#loop-dark-ah)"/>
+<path d="M600 314 V334 H950 V44 H140 V70" fill="none" stroke="#e0a040" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#loop-dark-ah)"/>
 <text x="560" y="36" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#e0a040" text-anchor="middle">what the last run taught goes into the next brief</text>
 <rect x="40" y="70" width="200" height="84" rx="10" fill="#1b2b47" stroke="#8fb0e8" stroke-width="2"/>
 <circle cx="62" cy="94" r="12" fill="#e0a040"/>

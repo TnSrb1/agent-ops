@@ -117,6 +117,26 @@ waits and re-reads the status before giving up; a lost merge costs a 20-minute g
 was once picked up again every two minutes: 178 starts and an alert storm. A drop is now a
 state file newer than the approval, and only a fresh approval clears it.
 
+## Dispatcher details
+
+Checked against the running dispatcher on 26 November 2026:
+
+- **When a batch starts.** The dispatcher polls every two minutes. It starts a train when the
+  newest approval is at least `BATCH_WAIT` old (default 300 s), or as soon as three approved PRs
+  are waiting. It takes the five lowest numbers. Waiting collects a batch; three PRs is enough
+  not to wait longer.
+- **Stale means "the worker moved".** After approval, only commits by the coordinator and merge
+  commits are allowed on top of approved commit S. Any other commit from the worker, or a
+  rewritten branch where S is no longer an ancestor, renames the approval to `stale` and the PR
+  waits for a new review.
+- **A closed PR loses its approval.** If a PR is no longer open when polled, the approval is
+  deleted, so a merged or closed PR cannot be rebuilt into a batch.
+- **One dispatcher, one train.** Each takes a non-blocking lock at start and exits if it is
+  already running. A `STOP` file next to the state directory ends the dispatcher cleanly at the
+  top of its next loop; a train in progress is not interrupted.
+- **A broken precheck is skipped, not blamed.** If the precheck itself exits with an unexpected
+  code, the PR stays in the batch and the full gate decides.
+
 ## The worker side: a quick check instead of the gate
 
 The worker no longer runs the full gate. Its stop hook requires a **quick check** on the
